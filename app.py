@@ -17,9 +17,15 @@ def index():
 def upload():
     if request.method == 'POST':
         file = request.files['inputFile']
-        table = pd.read_excel(file)
-        table.columns = table.columns.str.replace(' ', '_')
-        table.to_sql(name= file.filename, con=target, if_exists='replace')
+        if '.xlsx' in file.filename:
+            table = pd.read_excel(file)
+            table.columns = table.columns.str.replace(' ', '_')
+            table.to_sql(name= file.filename, con=target, if_exists='replace')
+        if '.csv' in file.filename:
+            table = pd.read_csv(file)
+            table.columns = table.columns.str.replace(' ', '_')
+            table.to_sql(name= file.filename, con=target, if_exists='replace')
+
         return 'File uploaded'
 
 if __name__ == '__main__':
