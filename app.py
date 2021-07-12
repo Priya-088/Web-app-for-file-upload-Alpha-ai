@@ -7,7 +7,7 @@ import sqlite3
 import sqlalchemy as sa
 import pymysql
 
-target = sa.create_engine(f'mysql://sql6423797:uunBv5sHVq@sql6.freemysqlhosting.net/sql6423797')
+target = sa.create_engine(f'mysql://sql6424418:kZPRYYclcY@sql6.freemysqlhosting.net/sql6424418')
 app = Flask(__name__)
 
 @app.route('/')
